@@ -17,14 +17,17 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://13.233.153.168:5000/api/v1/auth/register", {
-        name,
-        email,
-        password,
-        phone,
-        address,
-        answer,
-      });
+      const res = await axios.post(
+        "http://13.233.153.168:5000/api/v1/auth/register",
+        {
+          name,
+          email,
+          password,
+          phone,
+          address,
+          answer,
+        }
+      );
       if (res && res.data.success) {
         toast.success(res.data && res.data.message);
         navigate("/login");
@@ -38,7 +41,7 @@ const Register = () => {
   };
 
   return (
-    <Layout title="Register - TECHBUD">
+    <Layout title="Register - PrimeCart">
       <div className="form-container" style={{ minHeight: "90vh" }}>
         <form onSubmit={handleSubmit}>
           <h4 className="title">REGISTER FORM</h4>

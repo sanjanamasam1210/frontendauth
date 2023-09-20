@@ -16,11 +16,14 @@ const ForgotPasssword = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://13.233.153.168:5000/api/v1/auth/forgot-password", {
-        email,
-        newPassword,
-        answer,
-      });
+      const res = await axios.post(
+        "http://13.233.153.168:5000/api/v1/auth/forgot-password",
+        {
+          email,
+          newPassword,
+          answer,
+        }
+      );
       if (res && res.data.success) {
         toast.success(res.data && res.data.message);
 
@@ -34,7 +37,7 @@ const ForgotPasssword = () => {
     }
   };
   return (
-    <Layout title={"Forgot Password - TECHBUD"}>
+    <Layout title={"Forgot Password - PrimeCart"}>
       <div className="form-container ">
         <form onSubmit={handleSubmit}>
           <h4 className="title">RESET PASSWORD</h4>

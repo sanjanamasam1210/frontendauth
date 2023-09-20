@@ -17,10 +17,13 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://13.233.153.168:5000/api/v1/auth/login", {
-        email,
-        password,
-      });
+      const res = await axios.post(
+        "http://13.233.153.168:5000/api/v1/auth/login",
+        {
+          email,
+          password,
+        }
+      );
       if (res && res.data.success) {
         toast.success(res.data && res.data.message);
         setAuth({
@@ -39,7 +42,7 @@ const Login = () => {
     }
   };
   return (
-    <Layout title="Login - TECHBUD">
+    <Layout title="Login - PrimeCart">
       <div className="form-container " style={{ minHeight: "90vh" }}>
         <form onSubmit={handleSubmit}>
           <h4 className="title">LOGIN FORM</h4>
