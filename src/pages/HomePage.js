@@ -24,7 +24,7 @@ const HomePage = () => {
   const getAllCategory = async () => {
     try {
       const { data } = await axios.get(
-        "http://13.233.153.168:5000/api/v1/category/get-category"
+        "/api/v1/category/get-category"
       );
       if (data?.success) {
         setCategories(data?.category);
@@ -43,7 +43,7 @@ const HomePage = () => {
     try {
       setLoading(true);
       const { data } = await axios.get(
-        `http://13.233.153.168:5000/api/v1/product/product-list/${page}`
+        `/api/v1/product/product-list/${page}`
       );
       setLoading(false);
       setProducts(data.products);
@@ -57,7 +57,7 @@ const HomePage = () => {
   const getTotal = async () => {
     try {
       const { data } = await axios.get(
-        "http://13.233.153.168:5000/api/v1/product/product-count"
+        "/api/v1/product/product-count"
       );
       setTotal(data?.total);
     } catch (error) {
@@ -74,7 +74,7 @@ const HomePage = () => {
     try {
       setLoading(true);
       const { data } = await axios.get(
-        `http://13.233.153.168:5000/api/v1/product/product-list/${page}`
+        `/api/v1/product/product-list/${page}`
       );
       setLoading(false);
       setProducts([...products, ...data?.products]);
@@ -106,7 +106,7 @@ const HomePage = () => {
   const filterProduct = async () => {
     try {
       const { data } = await axios.post(
-        "http://13.233.153.168:5000/api/v1/product/product-filters",
+        "/api/v1/product/product-filters",
         {
           checked,
           radio,
@@ -166,7 +166,7 @@ const HomePage = () => {
             {products?.map((p) => (
               <div className="card m-2" key={p._id}>
                 <img
-                  src={`http://13.233.153.168:5000/api/v1/product/product-photo/${p._id}`}
+                  src={`/api/v1/product/product-photo/${p._id}`}
                   className="card-img-top"
                   alt={p.name}
                 />
